@@ -8,7 +8,7 @@ RUN \
   apt-get install -y curl git man unzip vim wget && \
   apt-get install -y default-jre && \
   apt-get install -y default-jdk && \
-  git clone https://github.com/spring-projects/spring-petclinic.git && \
+  git clone https://github.com/medleandrodevops/spring-petclinic && \
   cd spring-petclinic && ./mvnw package && java -jar target/*.jar
   
   
