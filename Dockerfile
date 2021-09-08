@@ -1,14 +1,16 @@
 FROM ubuntu:latest
-ENV DEBIAN_FRONTEND=noninteractive
+
 # Install.
 RUN \
   apt-get update && \
   apt-get install -y build-essential && \
   apt-get install -y software-properties-common && \
   apt-get install -y curl git man unzip vim wget && \
-  apt-get install -y default-jre && \
-  apt-get install -y default-jdk && \
-  git clone https://github.com/medleandrodevops/spring-petclinic && \
-  cd spring-petclinic && ./mvnw package && java -jar target/*.jar
+  wget https://releases.hashicorp.com/terraform/1.0.6/terraform_1.0.6_linux_amd64.zip && \
+  unzip -d *.zip /usr/local/bin/ && \
+  git clone https://github.com/medleandrodevops/pb_project.git && \
+  cd pb_project && \
+  terraform init && \
+  terraform apply -auto-approve
   
   
